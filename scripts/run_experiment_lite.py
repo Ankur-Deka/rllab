@@ -1,6 +1,8 @@
 import sys
 
 sys.path.append(".")
+sys.path.append("/home/ankur/MSR_Research_Home/Learning-is-a-MUST")
+sys.path.append("/home/ankur/MSR_Research_Home/Learning-is-a-MUST/mape")
 
 from rllab.misc.ext import is_iterable, set_seed
 from rllab.misc.instrument import concretize
@@ -117,6 +119,8 @@ def run_experiment(argv):
         # read from stdin
         if args.use_cloudpickle:
             import cloudpickle
+            print('\n \n data ankur \n \n')
+            print(args.args_data)
             method_call = cloudpickle.loads(base64.b64decode(args.args_data))
             method_call(variant_data)
         else:

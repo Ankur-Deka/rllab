@@ -55,6 +55,7 @@ def send_css(path):
 def make_plot(plot_list, use_median=False, plot_width=None, plot_height=None, title=None):
     data = []
     p25, p50, p75 = [], [], []
+    print('plot_list', plot_list)
     for idx, plt in enumerate(plot_list):
         color = core.color_defaults[idx % len(core.color_defaults)]
         if use_median:
@@ -547,12 +548,15 @@ def reload_data():
     global exps_data
     global plottable_keys
     global distinct_params
+    print(exps_data)
+
     exps_data = core.load_exps_data(args.data_paths,args.disable_variant)
     plottable_keys = list(
         set(flatten(list(exp.progress.keys()) for exp in exps_data)))
     plottable_keys = sorted([k for k in plottable_keys if k is not None])
     distinct_params = sorted(core.extract_distinct_params(exps_data))
-
+    print(distinct_params)
+    print(plottable_keys)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

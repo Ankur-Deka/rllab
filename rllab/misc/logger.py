@@ -225,6 +225,8 @@ def save_itr_params(itr, params):
         elif _snapshot_mode == "gap":
             if itr % _snapshot_gap == 0:
                 file_name = osp.join(_snapshot_dir, 'itr_%d.pkl' % itr)
+                print('params\n', params)
+                print('file_name', file_name)
                 joblib.dump(params, file_name, compress=3)
         elif _snapshot_mode == 'none':
             pass
